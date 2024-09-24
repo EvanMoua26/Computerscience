@@ -1,0 +1,6 @@
+user_input1=print(" What is your favorite animal?")
+user_input2=print("Why do you like them?")
+user_input3=print( "where do they live?")
+user_input4=print("What is a fun fact about Them?")
+user_input5=print("What color are they?")
+print ("Your favorite animal is the " + user_input1 + "Because" + user_input2 + "." + "They live in " + user_input3 + "and" + user_input4 + "They are" )
