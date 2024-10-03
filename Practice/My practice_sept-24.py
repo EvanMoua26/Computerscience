@@ -1,4 +1,4 @@
-num = input ("Entenum = input("Enter the number you want to sqaure")
+num = input("Entenum = input("Enter the number you want to sqaure")
 num = int(num)
 print(num * num)r something!\n>") # Asking for input and declaring a varable 
 num  = int(Num)                      
