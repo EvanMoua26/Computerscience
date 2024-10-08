@@ -28,3 +28,4 @@ answer_two = input("write the number 5\n>")
 print(answer_two == "5")
 
 print("walrus == walrus")      # == is totally valid for 2 strings , Ex
+

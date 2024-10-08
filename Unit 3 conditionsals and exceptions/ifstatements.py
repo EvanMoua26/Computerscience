@@ -37,5 +37,3 @@ else:
 #create a five question quiz that prints your score at the end 
 #Choose any five questions
 # Ez
-
-print(5)
