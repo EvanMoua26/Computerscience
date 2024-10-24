@@ -26,5 +26,3 @@ print(y) # print "Hello world"
 #title()
 #converts a string to titlecase
 #captalize
-
-z = 
