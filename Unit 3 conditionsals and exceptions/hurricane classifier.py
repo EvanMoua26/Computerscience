@@ -22,9 +22,9 @@ elif x. lower() == "96":
       print (" has to be lower ")
 elif x .lower() == "111":
    print("its bad and should stop going to the storm")
-elif x. lower() == "130"
+elif x. lower() == "130":
         print ("")
-elif x. lower() == 
+elif x. lower() ==  
         print ("")
 elif x. lower() == 
         print ("")
