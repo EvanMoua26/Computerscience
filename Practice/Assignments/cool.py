@@ -1,36 +1,34 @@
 # first need to import board specific tools
 #every project for this board will need this statment
-from adafruit_circuitplayground import cp
+import board
+import digitalio
+import neopixel
 import time
-#when the program finishes hte board enters a waiting state
-#-> flashes all green then off
-# We do not want the program to ever end
-#thats why we put our program in a will true
-#-> runs forever
+
+# Setup the switch pin (assuming the switch is connected to pin D5)
+switch_pin = digitalio.DigitalInOut(board.D7)
+switch_pin.switch_to_input(pull=digitalio.Pull.UP)
+
+# Setup the NeoPixels (Circuit Playground has 10 NeoPixels)
+pixels = neopixel.NeoPixel(board.NEOPIXEL, 10, auto_write=True)
+
+# Function to turn on/off pixels based on the switch position
+def update_pixels():
+    if switch_pin.value:  # Switch is in the left position (HIGH)
+        # Turn pixels 0-4 off, pixels 5-9 green on 
+        for i in range(5):
+            pixels[i] = (0, 0, 0)  # Off
+        for i in range(5, 10):
+            pixels[i] = (0, 255, 0)  # Green
+    else:  # Switch is in the right position (LOW)
+        # Turn pixels 0-4 green off , pixels 5-9 off
+        for i in range(5):
+            pixels[i] = (0, 255, 0)  # Green
+        for i in range(5, 9):
+            pixels[i] = (0, 0, 0)  # Off
+
+# Main loop
 while True:
-    cp.pixels[0] = (0,1,0)
-    cp.pixels[1] =(0,1,0)
-    cp.pixels[2] =(0,1,0)
-    cp.pixels[3] = (0,1,0)
-    cp.pixels[4] = (0,1,0)
-    cp.pixels[5] = (0,1,0)  
-    cp.pixels[6] = (0,1,0)
-    cp.pixels[7] = (0,1,0)
-    cp.pixels[8] = (0,1,0)
-    cp.pixels[9] = (0,1,0)
-    time.sleep(367) 
-
-    cp.pixels[0] = (0,0.0,0)
-    cp.pixels[1] =(0,0.0,0)
-    cp.pixels[2] =(0,0.0,0)
-    cp.pixels[3] = (0,0.0,0)
-    cp.pixels[4] = (0,0.0,0)
-    cp.pixels[5] = (0,0.0,0)  
-    cp.pixels[6] = (0,0.0,0)
-    cp.pixels[7] = (0,0.0,0)
-    cp.pixels[8] = (0,0.0,0)
-    
-    time.sleep (367)
-
-
+    update_pixels()
+    time.sleep(0.1)  # Update every 100ms to reduce flicker and CPU load
 
